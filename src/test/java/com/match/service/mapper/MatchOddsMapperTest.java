@@ -1,5 +1,6 @@
 package com.match.service.mapper;
 
+import com.match.service.domain.Match;
 import org.junit.jupiter.api.Test;
 
 import static com.match.service.data.TestMatchOddsDTOData.createFirstMatchOddsDTO;
@@ -14,7 +15,7 @@ class MatchOddsMapperTest {
         final var matchOdds = createFirstMatchOdds();
         final var matchOddsDTO = createFirstMatchOddsDTO();
 
-        final var result = MatchOddsMapper.map(matchOddsDTO);
+        final var result = MatchOddsMapper.map(matchOddsDTO, Match.builder().build());
 
         assertThat(result)
                 .isNotNull()

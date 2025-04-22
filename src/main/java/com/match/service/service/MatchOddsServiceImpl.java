@@ -66,7 +66,7 @@ public class MatchOddsServiceImpl implements MatchOddsService {
         final var match = matchRepository.findById(matchOddsDTO.matchId())
                 .orElseThrow(() -> new MatchNotFoundException("Match with ID " + matchOddsDTO.matchId() + " not found"));
 
-        MatchOdds odds = MatchOddsMapper.map(matchOddsDTO);
+        MatchOdds odds = MatchOddsMapper.map(matchOddsDTO,match);
         odds.setMatch(match);
 
         return map(oddsRepository.save(odds));
